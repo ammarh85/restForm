@@ -149,10 +149,17 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 	defer resp.Body.Close()
 
 	log.Debug("response Status:", resp.Status)
+	statusArray := strings.Fields(resp.Status)
+	status, err := strconv.Atoi(statusArray[0])
+	if err != nil {
+		// handle error
+		err := activity.NewError("Unknow Status Code Returned " + resp.Status, "", nil)
+		return false, err
+	}
+
 	respBody, _ := ioutil.ReadAll(resp.Body)
 
 	var result interface{}
-	status := resp.Status
 
 	d := json.NewDecoder(bytes.NewReader(respBody))
 	d.UseNumber()
