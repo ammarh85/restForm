@@ -45,6 +45,10 @@ var jsonMetadata = `{
     {
       "name": "result",
       "type": "any"
+    },
+    {
+      "name": "statusCode",
+      "type": "any"
     }
   ]
 }
