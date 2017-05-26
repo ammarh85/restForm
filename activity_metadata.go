@@ -5,9 +5,9 @@ import (
 )
 
 var jsonMetadata = `{
-  "name": "tibco-rest",
+  "name": "tibco-rest-form",
   "type": "flogo:activity",
-  "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/rest",
+  "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/restForm",
   "version": "0.0.1",
   "title": "Invoke REST Service",
   "description": "Simple REST Activity",
