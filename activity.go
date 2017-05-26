@@ -35,6 +35,7 @@ const (
 	ivParams      = "params"
 
 	ovResult = "result"
+	ovStatusCode = "statusCode"
 )
 
 var validMethods = []string{methodGET, methodPOST, methodPUT, methodPATCH, methodDELETE}
@@ -94,7 +95,6 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 		uri = uri + "?" + qp.Encode()
 	}
 
-	log.Info("BHOW!!!!")
 	log.Debugf("REST Call: [%s] %s\n", method, uri)
 
 	var reqBody io.Reader
@@ -152,6 +152,7 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 	respBody, _ := ioutil.ReadAll(resp.Body)
 
 	var result interface{}
+	status := resp.Status
 
 	d := json.NewDecoder(bytes.NewReader(respBody))
 	d.UseNumber()
@@ -162,6 +163,7 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 	log.Debug("response Body:", result)
 	log.Info("response Body:", result)
 	context.SetOutput(ovResult, result)
+	context.SetOutput(ovStatusCode, status)
 
 	return true, nil
 }
