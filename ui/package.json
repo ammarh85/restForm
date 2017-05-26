@@ -1,5 +1,5 @@
 {
-  "name": "tibco-rest",
+  "name": "tibco-rest-form",
   "version": "0.1.0",
-  "description": "Simple REST Activity"
+  "description": "Simple REST Activity Form"
 }
