@@ -10,6 +10,7 @@ import (
 	//"mime/multipart"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -168,9 +169,9 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 	//json.Unmarshal(respBody, &result)
 
 	log.Debug("response Body:", result)
-	log.Info("response Body:", result)
+	log.Info("response Status: ==>", status)
 	context.SetOutput(ovResult, result)
-	context.SetOutput(ovStatusCode, status)
+	context.SetOutput(ovStatusCode, result)
 
 	return true, nil
 }

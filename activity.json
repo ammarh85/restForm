@@ -42,7 +42,7 @@
     },
     {
       "name": "statusCode",
-      "type": "number"
+      "type": "any"
     }
   ]
 }
