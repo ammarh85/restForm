@@ -169,9 +169,9 @@ func (a *RESTActivity) Eval(context activity.Context) (done bool, err error) {
 	//json.Unmarshal(respBody, &result)
 
 	log.Debug("response Body:", result)
-	log.Info("response Status: ==>", status)
+
 	context.SetOutput(ovResult, result)
-	context.SetOutput(ovStatusCode, result)
+	context.SetOutput(ovStatusCode, status)
 
 	return true, nil
 }

@@ -48,7 +48,7 @@ var jsonMetadata = `{
     },
     {
       "name": "statusCode",
-      "type": "any"
+      "type": "number"
     }
   ]
 }
